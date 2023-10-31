@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import ButtonModal from "./ButtonModal";
+import Modal from "./Modal";
 
 function App() {
+  // const [ativo, setAtivo] = React.useState(false);
+  // const [dados, setDados] = React.useState({ nome: "Edmar", idade: "38" });
+
+  // function handleClick() {
+  //   setAtivo(!ativo);
+  //   setDados({...dados, faculdade: 'Possiu Faculdade'})
+  // }
+
+  const [modal, setModal] = React.useState(false);
+  let [items, setItems] = React.useState("Teste");
+
+  function handleClick() {
+    setItems('outros')
+
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {/* <p>{dados.nome}</p>
+      <p>{dados.idade}</p>
+      <p>{dados.faculdade}</p>
+      <button onClick={handleClick}>{ativo ? "Ativo" : "Inativo"}</button> */}
+      {/* <div>{modal ? "Modal Aberto" : "Modal Fechado"}</div> */}
+      <Modal modal={modal} setModal={setModal} />
+      <ButtonModal setModal={setModal} />
+      {items}
+      <button onClick={handleClick} >Clicar</button>
     </div>
   );
 }
